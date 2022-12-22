@@ -8,7 +8,11 @@ npm install canvas-sketch-cli --global
 ## 基本命令
 ### 新建文件
 ```
+// 2d
 canvas-sketch sketch.js --new 
+// 3d
+canvas-sketch sketch.js --new  --template=three
+
 ```
 ### 运行
 ```
