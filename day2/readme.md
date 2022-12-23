@@ -40,12 +40,13 @@ const material = new THREE.MeshNormalMaterial();
   const mesh = new THREE.Mesh(geometry, material);
 ```
 ## 环境光
-让需要光照材质，显示材质
+可影响物体产生阴影的颜色
 ```
 new  THREE.AmbientLight('#59143f')
 ```
 ## 点光源 
-可以让物体有阴影
+可以让物体产生阴影
+让需要光照材质，显示材质
 ```
 	const plight = new THREE.PointLight('#45caf7', 1, 15.5)
 
