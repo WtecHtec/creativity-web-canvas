@@ -12,6 +12,8 @@ npm install canvas-sketch-cli --global
 canvas-sketch sketch.js --new 
 // 3d
 canvas-sketch sketch.js --new  --template=three
+// shader
+canvas-sketch shader.js --new  --template=shader
 
 ```
 ### 运行
