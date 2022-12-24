@@ -6,10 +6,14 @@ require("three/examples/js/controls/OrbitControls");
 const random = require('canvas-sketch-util/random')
 const palettes = require('nice-color-palettes')
 const canvasSketch = require("canvas-sketch");
+const eases = require('eases')
+const BezierEasing = require('bezier-easing')
 
 const settings = {
+	fps: 24,
+	duration: 4,
   // Make the loop animated
-  // animate: true,
+  animate: true,
   // Get a WebGL canvas rather than 2D
   context: "webgl"
 };
@@ -56,7 +60,7 @@ const sketch = ({ context }) => {
 	const light = new  THREE.DirectionalLight('white', 1)
 	light.position.set(0,0,4)
 	scene.add(light)
-
+	const easing = BezierEasing(0.12,0.62,1, 0.31);
 
   // draw each frame
   return {
@@ -67,7 +71,7 @@ const sketch = ({ context }) => {
       const aspect = viewportWidth / viewportHeight;
 
 			// Ortho zoom
-			const zoom = 2;
+			const zoom = 3;
 
 			// Bounds
 			camera.left = -zoom * aspect;
@@ -88,8 +92,10 @@ const sketch = ({ context }) => {
 			camera.updateProjectionMatrix();
     },
     // Update & render your scene here
-    render({ time }) {
+    render({ playhead }) {
       // controls.update();
+			const t = Math.sin(playhead * Math.PI ) 
+			scene.rotation.z = easing(t)
       renderer.render(scene, camera);
     },
     // Dispose of events & renderer for cleaner hot-reloading
