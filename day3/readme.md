@@ -1,4 +1,4 @@
-# 效果
+#  webgl.js 效果
 1、随机位置、颜色、缩放多个方块
 2、实现贝塞尔曲线动效
 
@@ -17,3 +17,6 @@ npm i eases
 npm i bezier-easing
 
 ```
+# webgl-shader.js 效果
+1. ShaderMaterial 材质渲染
+
